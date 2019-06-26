@@ -15,9 +15,10 @@ namespace aspnetcorewien.Pages.modul02
         {
             _allrequest = allrequests;
         }
-        public void OnGet()
+        public void OnGet([FromServices] requestCountcs allrequests1)
         {
             _allrequest.Anzahl++;
+            allrequests1.Anzahl++;
         }
     }
 }
