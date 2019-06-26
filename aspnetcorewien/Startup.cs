@@ -54,9 +54,9 @@ namespace aspnetcorewien
                 subapp.Use(async (context, next) =>
                 {
                     if (!context.User.Identity.IsAuthenticated)
-                    {
+                    {   
                         context.Response.StatusCode = StatusCodes.Status401Unauthorized;
-                    
+                       
                     }
                 }
 
