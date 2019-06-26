@@ -1,0 +1,25 @@
+﻿@page
+@model aspnetcorewien.Pages.modul03.leerRazorModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>leerRazor</title>
+</head>
+<body>
+    <a asp-route-id="3" asp-page="page3"></a>
+
+    @section Script
+    {
+        alert('Hallo');
+    }
+</body>
+
+</html>
