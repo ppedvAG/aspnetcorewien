@@ -1,0 +1,23 @@
+﻿@page 
+@model aspnetcorewien.Pages.modul03.rechnerModel
+@{
+    ViewData["Title"] = "rechner";
+}
+
+<h1>rechner</h1>
+<form method="post">
+    wert1 <input id="Text1" name="text1" type="text" />
+    Wert 2<input id="Text1" name="text2" type="text" />
+    <input id="Submit1" type="submit" value="add" />
+    <input id="Submit1" type="submit" value="sub" asp-page-handler="sub" />
+</form>
+
+<form method="post">
+    wert1 <input asp-for="MyHannes.text1" />
+    Wert 2<input asp-for="MyHannes.text2" />
+  
+    <input id="Submit1" type="submit" value="mulitply" asp-page-handler="mulitply" />
+</form>
+@Model.Ergebnis
+
+
