@@ -50,6 +50,18 @@ namespace aspnetcorewien
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+            app.Map("/geheim.txt",subapp=> {
+                subapp.Use(async (context, next) =>
+                {
+                    if (!context.User.Identity.IsAuthenticated)
+                    {
+                        context.Response.StatusCode = StatusCodes.Status401Unauthorized;
+                    
+                    }
+                }
+
+                    );
+            });
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
