@@ -1,8 +1,35 @@
 ﻿@page "/seite1"
+
 @model aspnetcorewien.Pages.modul03.page1Model
 @{
-    ViewData["Title"] = "page1";
+    ViewData["Title"] = "coole Seite";
+    var I = 0;
 }
 
-<h1>page1 Hannes</h1>
 
+<h1>page1 Hannes</h1>
+@Model.User.Identity.Name
+@I
+<h1>@(DateTime.Now)</h1>
+<img src="/imgae/@I/sdgfd" />
+emailto:hannesp@ppedv.de
+@@
+<text></text>
+@Html.Raw("hannesp@ppedv.de")
+
+<br />
+@if (true)
+{
+    <b>das ist wahr</b>
+}
+else
+{
+    <h2>das ist falsch</h2>
+}
+
+    <ul>
+        @for (int i = 0; i < 10; i++)
+        {
+            <li>@i</li>
+        }
+    </ul>

@@ -1,8 +1,24 @@
 ﻿@page
-@model aspnetcorewien.Pages.modul03.page2Model
+@using aspnetcorewien.Pages.modul02
+@inject requestCountcs vari
 @{
     ViewData["Title"] = "page2";
 }
+@functions
+{
+    public void OnGet()
+    {
+
+    }
+    public void OnPost()
+    {
+
+    }
+}
 
 <h1>page2</h1>
+@vari.Anzahl
 
+<br />
+<button type="submit"></button><br />
+<a asp-page="/modul03/page3" asp-route-id="1">Link</a>
