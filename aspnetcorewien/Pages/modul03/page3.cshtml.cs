@@ -10,7 +10,7 @@ namespace aspnetcorewien.Pages.modul03
     public class page3Model : PageModel
     {
         public int _Id { get; set; }
-        public void OnGet([FromQuery] int id)
+        public void OnGet([FromRoute] int id)
         {
             _Id = id;
         }
