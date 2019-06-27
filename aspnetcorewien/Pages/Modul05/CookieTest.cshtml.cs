@@ -15,7 +15,7 @@ namespace aspnetcorewien.Pages.Modul05
 
             
             var options = new CookieOptions {
-                Domain = ".ppedv.de",
+               
                 Expires = DateTime.Now.AddDays(30)
                 
             };
