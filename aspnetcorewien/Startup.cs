@@ -68,12 +68,12 @@ namespace aspnetcorewien
 
                     );
             });
-
+      app.UseResponseCaching();
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
             app.UseSession();
-            app.UseResponseCaching();
+      
             app.UseMvc();
         }
     }
