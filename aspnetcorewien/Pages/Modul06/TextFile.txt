@@ -1,0 +1,7 @@
+﻿
+PM>> scaffold-dbcontext "Server=localhost;Database=northwind;trusted_connection=true;" Microsoft.EntityFrameworkCore.SqlServer -outputdir Models 
+
+
+install-package Microsoft.EntityFrameworkCore.SqlServer
+install-package  Microsoft.EntityFrameworkCore.Tools
+Microsoft.VisualStudio.Web.CodeGeneration.Design

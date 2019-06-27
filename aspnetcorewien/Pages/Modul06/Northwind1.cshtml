@@ -1,0 +1,28 @@
+﻿@page
+@model aspnetcorewien.Pages.Modul06.Northwind1Model
+@{
+    ViewData["Title"] = "Northwind1";
+}
+
+<h1>Northwind1</h1>
+<table class="table table-striped">
+    @foreach (var item in Model.KundenListe)
+    {
+        
+    <tr>
+        <td>
+            @item.CustomerId
+        </td>
+        <td>
+            @item.CompanyName
+        </td>
+        <td>
+            @item.ContactName
+        </td>
+        <td>
+            @item.Region
+        </td>
+    </tr>
+
+    }
+</table>
