@@ -1,0 +1,10 @@
+﻿@page
+@model aspnetcorewien.Pages.Modul05.cache2Model
+@{
+    ViewData["Title"] = "cache2";
+}
+
+<h1>cache2</h1>
+<cache expires-after="@new TimeSpan(0,0,30)">
+    @DateTime.Now
+</cache>
