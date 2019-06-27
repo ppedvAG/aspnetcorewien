@@ -5,5 +5,12 @@
 }
 
 <h1>ImageListe</h1>
+<div class="row">
+    @foreach (var item in Model.dateien)
+    {
+        <div class="col"> <img src="imageloader.ashx?img=@(Model.ClearPath(item))" width="300" height="200" /></div>
 
-<img src="imageloader.ashx?img=WIN_20190627_12_31_16_Pro.jpg" />
+
+
+    }
+</div>
