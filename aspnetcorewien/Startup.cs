@@ -37,7 +37,8 @@ namespace aspnetcorewien
                 options.IdleTimeout = new TimeSpan(0, 0, 10);
             }
             );
-
+            services.AddResponseCaching();
+        
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.AddSingleton<requestCountcs>();
         }
@@ -72,6 +73,7 @@ namespace aspnetcorewien
             app.UseStaticFiles();
             app.UseCookiePolicy();
             app.UseSession();
+            app.UseResponseCaching();
             app.UseMvc();
         }
     }
