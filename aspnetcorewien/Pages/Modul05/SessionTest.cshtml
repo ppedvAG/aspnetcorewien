@@ -1,0 +1,11 @@
+﻿@page
+@model aspnetcorewien.Pages.Modul05.SessionTestModel
+@using Microsoft.AspNetCore.Http
+
+@{
+    ViewData["Title"] = "SessionTest";
+}
+
+<h1>SessionTest</h1>
+@HttpContext.Session.GetString("hannes")
+
