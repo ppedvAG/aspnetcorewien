@@ -18,7 +18,9 @@ namespace aspnetcorewien.Pages.Modul05
         public void OnPost(IFormFile datei)
         {
             var name = Path.GetFileName(datei.FileName);
-            var pfad = @"C:\aspnetcore\aspnetcorewien\aspnetcorewien\images\"+name; //Todo: peitsche dich selbst
+            // var pfad = @"C:\aspnetcore\aspnetcorewien\aspnetcorewien\images\"+name; //Todo: peitsche dich selbst
+
+            var pfad = AppDomain.CurrentDomain.GetData("wwwroot").ToString() + name;
             using (var fs = new FileStream(pfad, FileMode.Create))
             {
                 datei.CopyTo(fs);

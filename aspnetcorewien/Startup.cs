@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using aspnetcorewien.Pages.modul02;
+using aspnetcorewien.Pages.Modul05;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -31,14 +32,14 @@ namespace aspnetcorewien
                 options.CheckConsentNeeded = context => true;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
-            services.AddSession(options=>
+            services.AddSession(options =>
             {
                 options.Cookie.HttpOnly = true;
                 options.IdleTimeout = new TimeSpan(0, 0, 10);
             }
             );
             services.AddResponseCaching();
-        
+
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.AddSingleton<requestCountcs>();
         }
@@ -56,25 +57,33 @@ namespace aspnetcorewien
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
-            AppDomain.CurrentDomain.SetData("wwwroot", env.ContentRootPath);
-            app.Map("/geheim.txt",subapp=> {
+            AppDomain.CurrentDomain.SetData("wwwroot", env.ContentRootPath + @"\");
+            app.Map("/geheim.txt", subapp =>
+            {
                 subapp.Use(async (context, next) =>
                 {
                     if (!context.User.Identity.IsAuthenticated)
-                    {   
+                    {
                         context.Response.StatusCode = StatusCodes.Status401Unauthorized;
-                       
+
                     }
                 }
 
                     );
             });
+            app.MapWhen(context => context.Request.Path.ToString().Contains("imageloader.ashx"), subapp =>
+              {
+                  subapp.UseImageLoader();
+              });
+
+
+
       app.UseResponseCaching();
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
             app.UseSession();
-      
+
             app.UseMvc();
         }
     }
