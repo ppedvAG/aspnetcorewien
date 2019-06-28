@@ -1,0 +1,44 @@
+﻿@page "{handler?}"
+@model aspnetcorewien.Pages.Modul07.AufgabenPageModel
+@{
+    ViewData["Title"] = "AufgabenPage";
+}
+
+
+
+<div class="row">
+    <div class="col"><h1>Aufgaben Todo</h1></div>
+</div>
+<div class="row">
+    <div class="col">
+
+        <div class="list-group">
+            <div class="list-group-item active">
+                <h3>Liste Aufgaben</h3>
+            </div>
+            <form method="post">
+                @foreach (var item in Model.ListeAufgaben)
+                {
+                    <button class='list-group-item list-group-item-action @(item.Fertig?"list-group-item-success":""))' 
+                        asp-page="Aufgabenpage" asp-page-handler="erledigt" asp-route-id="@item.ID">
+                        <h3>@item.Text</h3>
+                        @item.Termin.ToString("ddd dd. MMM yyyy")
+                    </button>
+                }
+            </form>
+        </div>
+    </div>
+    <div class="col">
+        <h3>neue Aufgabe</h3>
+    </div>if
+</div>
+@section Scripts
+    {
+    <script>
+        function erledigt(id) {
+            $.get("?handler=erledigen", function (data, status) {
+                alert("Data: " + data + "\nStatus: " + status);
+            });
+        }
+    </script>
+}
