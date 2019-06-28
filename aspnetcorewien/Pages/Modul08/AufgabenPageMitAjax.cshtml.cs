@@ -22,6 +22,7 @@ namespace aspnetcorewien.Pages.Modul08
         public void OnGet()
         {
             ListeAufgaben = _context.Aufgaben.ToList();
+            NeuAufgabe = new Aufgaben() { Termin = DateTime.Now.AddHours(2) };
 
         }
         public IActionResult OnPost()
