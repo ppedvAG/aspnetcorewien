@@ -14,6 +14,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.AspNetCore.Mvc.Formatters.Xml;
+using Microsoft.AspNetCore.Mvc.Formatters;
 
 namespace aspnetcorewien
 {
@@ -43,7 +45,11 @@ namespace aspnetcorewien
             );
             services.AddResponseCaching();
 
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddMvc(options=>
+            {
+                options.OutputFormatters.Add(new XmlSerializerOutputFormatter());
+            }
+            ).SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.AddSingleton<requestCountcs>();
             services.AddDbContext<northwindContext>(options => {
                 options.UseSqlServer(Configuration.GetConnectionString("nwConnection"));
