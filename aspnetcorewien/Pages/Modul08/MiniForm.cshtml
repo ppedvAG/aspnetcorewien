@@ -1,0 +1,18 @@
+﻿@page
+@model aspnetcorewien.Pages.Modul08.MiniFormModel
+@{
+    ViewData["Title"] = "MiniForm";
+}
+
+<h1>MiniForm</h1>
+<form method="post" novalidate>
+    <label asp-for="MyPerson.Alter"></label><br />
+    <input asp-for="MyPerson.Alter" /><br />
+    <span asp-validation-for="MyPerson.Alter"></span><br/>
+    <input asp-for="MyPerson.Name" /><br />
+    <input type="submit" value="save"/><br />
+    <div asp-validation-summary="All"></div>"
+
+
+</form>
+
