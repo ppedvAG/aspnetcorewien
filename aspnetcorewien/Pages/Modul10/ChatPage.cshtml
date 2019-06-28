@@ -7,16 +7,23 @@
 <h1>ChatPage</h1>
 <input id="msg1" />
 <a onclick="MsgSend();">senden</a><br />
-<div id="ausgabe"></div>
+<ul id="ausgabe"></ul>
 
 
 
 
 @section Scripts
-{
-<script src="~/aspnet-signalr/signalr.js"></script>
+    {
+    <script src="~/aspnet-signalr/signalr.js"></script>
     <script>
         var connection = new signalR.HubConnectionBuilder().withUrl("/MyChatHub").build();
-        connection.on("")
+        connection.on("ETClient", function (msg) {
+            $('#ausgabe').append($("<li>").text(msg));
+        });
+        connection.start().catch(function (err) { alert(err); });
+
+        function MsgSend() {
+            connection.invoke("send", $('#msg1').val()).catch(function (err) { alert(err); });
+        }
     </script>
 }

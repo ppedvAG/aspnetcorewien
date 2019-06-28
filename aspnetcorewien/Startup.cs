@@ -16,6 +16,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Mvc.Formatters.Xml;
 using Microsoft.AspNetCore.Mvc.Formatters;
+using aspnetcorewien.Pages.Modul10;
 
 namespace aspnetcorewien
 {
@@ -44,8 +45,10 @@ namespace aspnetcorewien
             }
             );
             services.AddResponseCaching();
+            services.AddSignalR();
 
-            services.AddMvc(options=>
+
+                services.AddMvc(options=>
             {
                 options.OutputFormatters.Add(new XmlSerializerOutputFormatter());
             }
@@ -99,7 +102,10 @@ namespace aspnetcorewien
             app.UseStaticFiles();
             app.UseCookiePolicy();
             app.UseSession();
-
+            app.UseSignalR(options =>
+            {
+                options.MapHub<MyChatHub>("/mychathub");
+            });
             app.UseMvc();
         }
     }
