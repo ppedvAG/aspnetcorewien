@@ -1,0 +1,22 @@
+﻿@page
+@model aspnetcorewien.Pages.Modul10.ChatPageModel
+@{
+    ViewData["Title"] = "ChatPage";
+}
+
+<h1>ChatPage</h1>
+<input id="msg1" />
+<a onclick="MsgSend();">senden</a><br />
+<div id="ausgabe"></div>
+
+
+
+
+@section Scripts
+{
+<script src="~/aspnet-signalr/signalr.js"></script>
+    <script>
+        var connection = new signalR.HubConnectionBuilder().withUrl("/MyChatHub").build();
+        connection.on("")
+    </script>
+}
