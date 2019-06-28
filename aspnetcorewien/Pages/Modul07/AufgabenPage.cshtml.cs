@@ -28,6 +28,7 @@ namespace aspnetcorewien.Pages.Modul07
             item.Fertig = !item.Fertig;
             _context.Update(item);
             _context.SaveChanges();
+            ListeAufgaben = _context.Aufgaben.ToList();
         }
     }
 }

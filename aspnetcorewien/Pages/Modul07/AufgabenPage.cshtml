@@ -19,7 +19,8 @@
             <form method="post">
                 @foreach (var item in Model.ListeAufgaben)
                 {
-                    <button class='list-group-item list-group-item-action @(item.Fertig?"list-group-item-success":""))' 
+                    <button class='list-group-item list-group-item-action @(item.Fertig?"list-group-item-success":"")' 
+onclick='return confirm("wirklich erledigt?");'
                         asp-page="Aufgabenpage" asp-page-handler="erledigt" asp-route-id="@item.ID">
                         <h3>@item.Text</h3>
                         @item.Termin.ToString("ddd dd. MMM yyyy")
