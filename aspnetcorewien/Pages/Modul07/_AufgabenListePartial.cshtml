@@ -1,0 +1,12 @@
+﻿
+@model aspnetcorewien.Pages.Modul07.AufgabenPageMitAjaxModel
+
+@foreach (var item in Model.ListeAufgaben)
+{
+    <a class='list-group-item list-group-item-action @(item.Fertig?"list-group-item-success":"")'
+            onclick='erledige(@item.ID);'
+             >
+        <h3>@item.Text</h3>
+        @item.Termin.ToString("ddd dd. MMM yyyy")
+    </a>
+}

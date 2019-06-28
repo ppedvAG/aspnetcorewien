@@ -1,0 +1,33 @@
+﻿@page
+@model aspnetcorewien.Pages.Modul07.AufgabenPageMitAjaxModel
+@{
+    ViewData["Title"] = "AufgabenPageMitAjax";
+}
+
+<div class="row">
+    <div class="col"><h1>Aufgaben Todo</h1></div>
+</div>
+<div class="row">
+    <div class="col">
+
+        <div class="list-group">
+            <div class="list-group-item active">
+                <h3>Liste Aufgaben</h3>
+            </div>
+           <div id="grid1"></div>
+        </div>
+    </div>
+    <div class="col">
+        <h3>neue Aufgabe</h3>
+    </div>if
+</div>
+@section Scripts
+    {
+    <script>
+        function erledige(id) {
+            $('#grid1').load('AufgabenPageMitAjax?handler=erledigt&id=' + id);
+           
+        }
+        erledige(0);
+    </script>
+}
