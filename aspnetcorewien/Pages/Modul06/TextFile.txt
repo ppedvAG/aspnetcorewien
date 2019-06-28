@@ -4,4 +4,9 @@ PM>> scaffold-dbcontext "Server=localhost;Database=northwind;trusted_connection=
 
 install-package Microsoft.EntityFrameworkCore.SqlServer
 install-package  Microsoft.EntityFrameworkCore.Tools
+
+
+add-migration start -context AufgabenContext
+update-database -context AufgabenContext
+
 Microsoft.VisualStudio.Web.CodeGeneration.Design

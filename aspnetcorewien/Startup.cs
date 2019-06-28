@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using aspnetcorewien.Models;
 using aspnetcorewien.Pages.modul02;
 using aspnetcorewien.Pages.Modul05;
+using aspnetcorewien.Pages.Modul06;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -47,6 +48,10 @@ namespace aspnetcorewien
             services.AddDbContext<northwindContext>(options => {
                 options.UseSqlServer(Configuration.GetConnectionString("nwConnection"));
                 });
+
+            services.AddDbContext<AufgabenContext>(options => {
+                options.UseSqlServer(Configuration.GetConnectionString("AufgabenConnection"));
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
